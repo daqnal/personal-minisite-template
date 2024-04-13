@@ -1,6 +1,6 @@
 # Personal Minisite Template
 
-See the live example:
+See the live example: https://daqnal.github.io/personal-minisite-template/
 ![screenshot of example site](screenshot.png)
 
 ## How to use
