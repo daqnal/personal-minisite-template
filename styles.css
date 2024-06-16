@@ -29,8 +29,14 @@
 
 
 
+
+@font-face {
+    font-family: 'Kanit';
+    src: url('/assets/kanit.woff2');
+}
+
 html {
-    /* Disable scroll bar */
+    background-color: #1a1b26;
     overflow: hidden;
 
     /* For desktops, use 100vh as the height of everything */
@@ -46,26 +52,22 @@ body {
     align-items: center;
     justify-content: center;
 
-    /* Add a responsive border separating the gray container box from the edges of the screen */
     padding: 2vw 2vw;
     margin: 0 0;
     height: 100%;
     box-sizing: border-box;
 
-    /* Set text styles for the whole page */
     color: #c0caf5;
     text-align: center;
     font-family: 'Kanit', Arial, Helvetica, sans-serif;
     font-display: swap;
     
-    /* Control colors, speed, and easing of the background gradient */
     background: linear-gradient(135deg, #1a1b26, #7aa2f7, #bb9af7, #f7768e);
     background-size: 400% 400%;
     animation: gradient 10s ease infinite;
 
 }
 
-/* Animate the background gradient */
 @keyframes gradient {
     0% {
 		background-position: 0% 50%;
@@ -78,7 +80,6 @@ body {
 	}
 }
 
-/* The gray box background and everything it contains */
 #content-border-container {
     box-sizing: border-box;
     width: 70vw;
@@ -94,7 +95,6 @@ body {
     justify-content: center;
 }
 
-/* Contain the logo, title, marquee, and buttons while keeping white space at the top and bottom */
 #media-container {
     width: 100%;
     height: fit-content;
@@ -104,20 +104,12 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 30%;
+    width: 25vh;
     max-width: 300px;
     /* min-width: 200px; */
     border-radius: 100%;
 }
 
-/* Includes: title, marquee, and buttons */
-#text-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Includes: title, marquee */
 #titles-container {
     width: 100%;
     margin-bottom: 0.5rem;
@@ -126,19 +118,27 @@ body {
     align-items: center;
 }
 
-#title {
+#text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
     margin-top: 0.5rem;
     margin-bottom: 0;
 
     font-size: 4rem;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-
-
-/* ---------- */
-/* Style the link buttons, their text, icons, and animations */
-/* ---------- */
+img {
+    display: inline;
+}
 
 #buttons-container {
     display: flex;
@@ -167,13 +167,7 @@ body {
     background-blend-mode: color;
     border-radius: 50px;
     color: inherit;
-    text-decoration: none;
     font-family: 'Kanit', Arial, Helvetica, sans-serif;
-}
-
-.svg {
-    width: 4vh;
-    max-width: 36px;
 }
 
 .info-button:hover {
@@ -185,42 +179,30 @@ body {
     display: none;
 }
 
-.info-text {
-    margin-left: 0.35rem;
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-
-    font-size: 1.2rem;
-    
-}
-
-/* \!/ Don't forget to change your account names here to appear when you hover over the button \!/ */
-
-#button1:hover::after {
-    content: "mygithubusername";
+#github-button:hover::after {
+    content: "daqnal";
     font-size: 1.2rem;
     margin-left: 0.35rem;
 }
 
-#button2:hover::after {
-    content: "me@my.email";
+#email-button:hover::after {
+    content: "dan@dgd.sh";
     font-size: 1.2rem;
     margin-left: 0.35rem;
 }
 
-#button3:hover::after {
-    content: "@username";
+#signal-button:hover::after {
+    content: "@dgd.99";
     font-size: 1.2rem;
     margin-left: 0.35rem;
 }
 
-#button4:hover::after {
-    content: "username";
+#linkedin-button:hover::after {
+    content: "dgdur";
     font-size: 1.2rem;
     margin-left: 0.35rem;
 }
 
-/* Make buttons transparent on hover */
 @keyframes button-background-slide {
     0% {
         background-color: rgba(65, 72, 104, 1);
@@ -230,24 +212,25 @@ body {
     };
 }
 
-/* Make button borders thicker on hover */
 @keyframes grow-border {
     0% {border-color: rgba(192, 202, 245, 0);}
     100% {border-color: rgba(192, 202, 245, 1);}
 }
 
+.info-text {
+    margin-left: 0.35rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
 
-
-
-/* ---------- */
-/* Create the skewed marquee effect with a gradient and background */
-/* ---------- */
+    font-size: 1.2rem;
+    
+}
 
 .marquee {
     width: 100%;
     max-width: 96vw;
     height: 50px;
-    margin: 2vh 0;
+    margin: 3vh 0;
 
     transform: skew(0, -4deg);
     background-color: #1a1b26;
@@ -259,7 +242,7 @@ body {
     user-select: none;
     gap: var(--gap);
 }
-
+  
 .marquee__content {
     font-size: 1.2rem;
     font-style: italic;
@@ -283,7 +266,6 @@ body {
     }
 }
 
-/* Gradient colors for marquee text */
 @keyframes change-color {
     0% {color: #7aa2f7;}
     25% {color: #bb9af7;}
@@ -292,13 +274,10 @@ body {
     100% {color: #7aa2f7;}
 }
 
-
-
-
-
-/* -------------- */
-/* MEDIA QUERIES: */
-/* -------------- */
+.svg {
+    width: 4vh;
+    max-width: 36px;
+}
 
 /* Any size less than 600 in length gets these styles */
 @media screen and (max-width: 650px) {
@@ -307,7 +286,8 @@ body {
     }
 
     #logo {
-        width: 200px;
+        width: 150px;
+        
     }
 
     #content-border-container {
@@ -315,7 +295,6 @@ body {
     }
 }
 
-/* Any size less than 350px in width gets these styles */
 @media screen and (max-width: 350px) {
     #logo {
         width: 50vw;
@@ -328,8 +307,6 @@ body {
     .marquee__content {
         font-size: 1rem;
     }
-
-/* Any screen less than 780px tall and greater than wide gets these styles */
 }
 @media screen and (max-height: 780px) and (min-width: 800px) {
     #buttons-container {
@@ -344,9 +321,17 @@ body {
         width: 45%;
         height: 7vh;
     }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .marquee {
+        margin: 1.5rem 0;
+        transform: skew(0, -3.5deg);
+    }
 }
 
-/* Any screen greater than 1000px but less than 700px gets these styles */
 @media screen and (min-width: 1000px) and (max-height: 700px) {
     body {
         padding: 1vw 1vw;
@@ -357,11 +342,55 @@ body {
     }
 }
 
-/* Ultrawide: Any screen greater than 2000px but less than 700px gets these styles */
+@media screen and (max-height: 550px) and (max-width: 900px) {
 
-/* Shrink the logo size if the screen is wide but not tall */
-@media screen and (max-height: 700px) {
+    #media-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #content-border-container {
+        width: 100%;
+    }
+
+    #buttons-container {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 90%;
+    }
+
     #logo {
         width: 20vh;
+        height: 20vh;
+        margin-left: 0;
+        margin-right: 1.5rem;
+        display: inline;
+        margin-top: auto;
+        margin-bottom: auto;
     }
+
+    .info-button {
+        width: 20%;
+        height: 10vh;
+    }
+
+    .marquee {
+        margin: 1rem 0;
+        transform: skew(0, -3.5deg);
+    }
+
+    h1 {
+        font-size: 3rem;
+        display: inline;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    #logo-title-container {
+        display: flex;
+        justify-content: center;
+    }
+
 }
